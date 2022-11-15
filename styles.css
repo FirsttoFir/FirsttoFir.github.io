@@ -1,0 +1,474 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color1: #1A2238;
+    --highlight-color: #5ba48a;
+    --width1: 100%;
+    --width2: 100%;
+    --width3: 100%; 
+}
+
+body {
+    width: 100%;
+    background-color: var(--color1);
+}
+
+#bg {
+    background-color: var(--color1);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-image: url(https://wallpaperaccess.com/full/2285489.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#grid-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--color1);
+    gap: 10px;
+    padding: ;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 2fr 0.8fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "header word1 image"
+        "header word2 image"
+        "footer word3 share";
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: white;
+    border: 2px solid white;
+}
+
+#title {
+    grid-area: header;
+    flex-direction: column;
+    background-color: #EEE;
+}
+
+#title > h1 {
+    text-align: center;
+    width: 90%;
+    overflow: hidden;
+    border-bottom: 2px #5ba48a solid;
+    font-size: 5rem;
+    font-family: "Raleway";
+    padding-bottom: 20%;
+    padding-top: 20%;
+}
+
+#title > ul {
+    font-size: 1.2rem;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+#user-experience {
+    grid-area: footer;
+    display: unset;
+    background-color: white;
+}
+
+#oneliner1 {
+    grid-area: word1;
+    /*animation: size 10s infinite;
+    background-color: #a0fefb;
+    color: black;*/
+
+    background-color: var(--color1);
+    color: white;
+}
+
+#oneliner2 {
+    grid-area: word2;
+    /*font-family: "Raleway";
+    font-weight: bold;
+    font-size: 1.5rem;
+    animation: size2 10s infinite;
+    background-color: #7f84ec;*/
+
+    background-color: var(--color1);
+    color: white;
+}
+
+#oneliner3 {
+    grid-area: word3;
+    /*font-family: "Raleway";
+    font-weight: bold;
+    font-size: 1.5rem;
+    animation: size3 10s infinite;
+    background-color: #fd084a;*/
+
+    background-color: var(--color1);
+    color: white;
+}
+
+
+/*@keyframes size {
+    0% { 
+        font-size: 1.5rem;
+        background-color: #a0fefb;
+    }
+
+    5% {
+        font-size: 1.8rem;
+        background-color: #c8fdfb;
+    }
+
+    10% {
+        font-size: 1.5rem;
+        background: #a0fefb;
+    }
+}*/
+
+.cell > h3 {
+    text-align: center;
+    font-family: "Raleway";
+    font-weight: bold;
+    font-size: 1.2rem;
+    overflow: hidden;
+    margin: 0 auto;
+    letter-spacing: .2em;
+    border-right: .15rem solid var(--highlight-color);
+    white-space: nowrap;
+    padding: 0 .1em;
+}
+
+#oneliner1 > h3 {    
+    animation: 
+        typing 6s steps(15, jump-end),
+        blink-caret 1s step-end infinite;
+}
+
+#oneliner2 > h3{
+    animation: 
+        typing2 6s steps(15, jump-end),
+        blink-caret 1s step-end infinite;
+}
+
+#oneliner3 > h3{
+    animation: 
+        typing3 6s steps(15, jump-end),
+        blink-caret 1s step-end infinite;
+}
+
+
+@keyframes typing {
+    0% {width: 0}
+    20% {width: 0}
+    40% {width: 6rem}
+}
+
+@keyframes typing2 {
+    0% {width: 0}
+    40% {width: 0}
+    60% {width: 9rem}
+}
+
+@keyframes typing3 {
+    0% {width: 0}
+    60% {width: 0}
+    80% {width: 9rem}
+}
+
+@keyframes blink-caret {
+    from, to{border-color: transparent}
+    50% {border-color: var(--highlight-color)}
+}
+
+
+/*@keyframes size2 {
+    10%{
+        font-size: 1.5rem;
+        background-color: #7f84ec;
+    }
+
+    15% {
+        font-size: 1.8rem;
+        background-color: #696ebd;
+    }
+
+    20% {
+        font-size: 1.5rem;
+        background-color: #494fc1
+    }
+}*/
+
+
+/*@keyframes size3 {
+    20%{
+        font-size: 1.5rem;
+        background-color: #fd084a;
+    }
+
+    25% {
+        font-size: 1.8rem;
+        background-color: #fd4a7a;
+    }
+
+    30% {
+        font-size: 1.5rem;
+        background-color: #fd084a;
+    }
+}*/
+
+#image-slider {
+    grid-area: image;
+}
+
+#share {
+    grid-area: share;
+}
+
+
+/* slider */
+
+.slider {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.slides {
+    width: 500%;
+    height: 100%;
+    display: flex;
+}
+
+.slides input{
+    display: none;
+}
+
+.slide {
+    width: 20%;
+    transition: 2s;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+
+/*.navigation-manual{
+    position: absolute;
+    width: 100px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid #ccc;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}*/
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+.manual-btn:hover {
+    background-color: #ccc;
+}
+
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -60%;
+}
+
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    width: 100px;
+    justify-content: center;
+    
+}
+
+.navigation-auto div {
+    border: 2px solid;
+    padding: 5px;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.navigation-auto div:not(:last-child) {
+    margin-right: 30px;
+}
+
+#radio1:checked ~.navigation-auto .auto-btn-1{
+    background-color: #555;
+}
+
+#radio2:checked ~.navigation-auto .auto-btn-2{
+    background-color: #555;
+}
+
+#radio3:checked ~.navigation-auto .auto-btn-3{
+    background-color: #555;
+}
+
+#radio4:checked ~.navigation-auto .auto-btn-4{
+    background-color: #555;
+}
+
+/* user */
+
+#username {
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    padding-top: 1.5rem;
+    position: relative;
+    font-family: "Chirp";
+}
+
+#username > i, #username > .name {
+    display: inline-block;
+}
+
+#username > .fa-user {
+    border-radius: 50%;
+    border: 1px solid;
+    padding: 8px;
+    font-size: 1.2rem;
+    background-color: gray;
+    color: #1A2238;
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    align-items: center;
+}
+
+#username > .name {
+    margin-left: 0.5rem;
+}
+
+.fa-twitter {
+    text-align: right;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.6rem;
+    color: #1DA1F2;
+}
+
+#comment {
+    padding: 0.8rem 1rem;
+    font-family: "Chirp"; 
+}
+
+#datetime {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    gap: 0.4rem;
+    color: gray;
+    position: relative;
+    margin-top: 1rem;
+}
+
+#datetime > p, #datetime > i {
+    display: inline-block;
+}
+
+#datetime > i {
+    font-size: 0.2rem;
+    position: relative;
+}
+
+#likes {
+    position: absolute;
+    right: 3rem;
+}
+
+#likes > label, #likes > p {
+    display: inline-block;
+}
+
+#likes > label:hover {
+    color: red;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+
+/* share */
+
+
+
+#share {
+    display: block;
+    position: relative;
+    background-color: #EEE;
+}
+
+#share > h3 {
+    border-right: unset;
+    padding-top: 4rem;
+    font-size: 1.8rem;
+    font-weight: bolder;
+    animation: color-change 3s infinite
+}
+
+@keyframes color-change {
+    0% {color: black}
+    50%{color: var(--highlight-color)}
+}
+
+#share > p{
+    text-align: center;
+    padding: 0.4rem;
+    border: 2px solid var(--highlight-color);
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
